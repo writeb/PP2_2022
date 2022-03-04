@@ -1,10 +1,17 @@
 import json
-print("Interface Status\n")
-print("================================================================================\n")
-print("DN                                                 Description           Speed    MTU ")
+print("Interface Status")
+print("================================================================================")
+print("DN                                                 Description           Speed    MTU  ")
 print("-------------------------------------------------- --------------------  ------  ------")
-with open ('sample-data.json') as j: 
-    a = json.load(j)
-for i in a["imdata"]:
-    print(i["l1PhysIf"]["attributes"]["dn"], (70 - len(i["l1PhysIf"]["attributes"]["dn"]))*" ",
-    i["l1PhysIf"]["attributes"]["speed"], " ", i["l1PhysIf"]["attributes"]["mtu"])
+
+data = open('sample-data.json', 'r')
+data = data.read()
+data = json.loads(data)
+
+c = len(data['imdata'][0]['l1PhysIf']['attributes']['dn'])
+for i in data['imdata']:
+    res = len(i['l1PhysIf']['attributes']['dn'])
+    i['l1PhysIf']['attributes']['dn'] += ' ' * (c - res)
+
+for i in data['imdata']:
+    print("{}                              {}   {}".format(i['l1PhysIf']['attributes']['dn'], i['l1PhysIf']['attributes']['speed'], i['l1PhysIf']['attributes']['mtu']))
