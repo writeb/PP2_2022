@@ -60,6 +60,18 @@ Python Lists
 Python Tuples
 {
     Python has two built-in methods that you can use on tuples.
-    
+    Adding Item:
+        convert tuple to a list then use append()
+    * - asterisk:
+        If the number of variables is less than the number of values, you can add an * to the variable name and the values 
+        will be assigned to the variable as a list
 }
+Python Lambda
+{
+    A lambda function is a small anonymous function.
+    A lambda function can take any number of arguments, but can only have one expression.
+    lambda arguments : expression
+    x = lambda a, b : a * b
+}
+
 '''
